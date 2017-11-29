@@ -17,3 +17,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 //@import "custom"
+
+.jumbotron {
+  background-image: asset-url('background.jpg');
+  background-size: cover;
+  color: fff;
+}
