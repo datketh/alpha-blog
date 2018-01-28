@@ -8,6 +8,8 @@
           <%= link_to a.title, article_path(a) %>
         </div>
         <div class="article-body">
+          <small>Created by <%= link_to a.user.username, user_path(a.user) %> on <%= a.created_at.strftime("%d %b. %Y") %></small>
+          <br />
           <%= truncate(a.description, length: 64) %>
         </div>
         <hr />
