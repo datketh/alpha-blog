@@ -38,6 +38,14 @@
   padding-bottom: 15px;
 }
 
+.listing {
+  list-style: none;
+  padding-left: 0;
+  .username {
+    font-size:2.1em;
+  }
+}
+
 footer {
   border-top: 1px solid #eaeaea;
   padding-top: 5px;

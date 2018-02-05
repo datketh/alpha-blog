@@ -1,6 +1,11 @@
 <h2 align="center"><%= @article.title %></h2>
 <br />
 <div class="well col-xs-8 col-xs-offset-2">
+  <% if @article.user %><small>
+    <%= link_to gravatar_for(@article.user, size: 20), user_path(@article.user) %>
+    <%= link_to @article.user.username, user_path(@article.user) %>
+  </small><% end %>
+  <br /><br />
   <%= simple_format(@article.description) %>
 </div>
 <br />
