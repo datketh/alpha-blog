@@ -1,25 +1,2 @@
 <h1 align="center">All Articles</h1>
-
-<% @articles.each do |a| %>
-  <div class="row">
-    <div class="col-xs-8 col-xs-offset-2">
-      <div class="well well-lg">
-        <div class="article-title">
-          <%= link_to a.title, article_path(a) %>
-        </div>
-        <div class="article-body">
-          <small>Created by <%= link_to a.user.username, user_path(a.user) %> on <%= a.created_at.strftime("%d %b. %Y") %></small>
-          <br />
-          <%= truncate(a.description, length: 64) %>
-        </div>
-        <hr />
-        <div class="article-index-actions">
-          <%= link_to "Edit this Article", edit_article_path(a), class: "btn btn-xs btn-primary" %>
-          <%= link_to "Delete this Article", article_path(a), method: :delete,
-                                              data: {confirm: :"Are you sure?"},
-                                              class: "btn btn-xs btn-danger" %>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
+<%= render 'articles', obj: @articles %>
