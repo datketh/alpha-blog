@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :show]
+  before_action :require_same_user, only: [:edit, :update]
   def index
     @users = User.paginate(page: params[:page], per_page: 2)
   end
@@ -42,5 +43,12 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def require_same_user
+    unless current_user == @user
+      flash[:danger] = "Cannot edit another user's profile"
+      redirect_to user_path(@user)
+    end
   end
 end
