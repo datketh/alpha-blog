@@ -2,8 +2,13 @@
 <div align="center">
   <%= will_paginate %>
 </div>
-
-<%= render 'articles', obj: @articles %>
+<% if @articles.empty? %>
+  <div align="center" style="padding-bottom:128px;">
+    There doesn't seem to be any articles yet...
+  </div>
+<% else %>
+  <%= render 'articles', obj: @articles %>
+<% end %>
 <div align="center">
   <%= will_paginate %>
 </div>
