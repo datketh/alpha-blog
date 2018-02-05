@@ -5,6 +5,12 @@
   </div>
 </div>
 <br /><br /><br />
+<% if logged_in? && current_user.admin? && current_user != @user %>
+  <div align="center">
+    <%= link_to "Delete this user", user_path(@user), method: :delete, data: {confirm: "WARNING - This will delete this user and all of their articles. Are you sure?"} %>
+  </div>
+  <br /><br /><br />
+<% end %>
 <h4 align="center"><%= @user.username %>'s Posts</h4>
 <div align="center">
   <%= will_paginate @articles %>

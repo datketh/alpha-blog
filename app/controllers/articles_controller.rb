@@ -53,7 +53,7 @@ class ArticlesController < ApplicationController
   end
 
   def require_same_user
-    unless current_user == @article.user
+    unless current_user == @article.user || current_user.admin?
       flash[:danger] = "Cannot edit or delete another user's post"
       redirect_to article_path(@article)
     end
