@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
+  def logged_in_admin?
+    return logged_in? && current_user.admin?
+  end
+
   def require_user
     unless logged_in?
       flash[:danger] = "Please log in"
