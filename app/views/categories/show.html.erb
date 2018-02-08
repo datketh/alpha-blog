@@ -1,0 +1,14 @@
+<h1 align="center"><%= "Articles posted in " + @category.name %></h1>
+<div align="center">
+  <%= will_paginate @category_articles %>
+</div>
+<% if @category_articles.empty? %>
+  <div align="center" style="padding-bottom:128px;">
+    There doesn't seem to be any articles yet...
+  </div>
+<% else %>
+  <%= render 'articles/articles', obj: @category_articles %>
+<% end %>
+<div align="center">
+  <%= will_paginate @category_articles %>
+</div>

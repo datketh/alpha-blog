@@ -46,6 +46,21 @@
   }
 }
 
+.badge {
+  background-color: #000000;
+  letter-spacing: -1px;
+  font-weight: bold;
+
+}
+
+.badge a {
+    color: #ffffff;
+}
+
+.input_checkbox {
+  width: auto !important;
+}
+
 footer {
   border-top: 1px solid #eaeaea;
   padding-top: 5px;

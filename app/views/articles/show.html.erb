@@ -7,6 +7,9 @@
   </small><% end %>
   <br /><br />
   <%= simple_format(@article.description) %>
+  <% if @article.categories.any? %>
+    <p>Posted in: <%= render @article.categories %></p>
+  <% end %>
 </div>
 <br />
 <div class="article-actions col-xs-8 col-xs-offset-2">
