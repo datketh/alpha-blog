@@ -17,4 +17,11 @@ class ApplicationController < ActionController::Base
       redirect_to login_url
     end
   end
+
+  def require_admin(callback_url = root_url)
+    unless logged_in? && current_user.admin?
+      flash[:danger] = "Need admin permissions for this action"
+      redirect_to callback_url
+    end
+  end
 end

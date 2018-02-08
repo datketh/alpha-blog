@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  before_action :set_category, only: [:show]
+  before_action except: [:index, :show] { require_admin(categories_path) }
   def new
     @category = Category.new
   end
@@ -12,14 +14,19 @@ class CategoriesController < ApplicationController
     end
   end
   def index
-    @categories = Category.all
+    @categories = Category.paginate(page: params[:page], per_page: 1)
   end
   def show
+
   end
 
   private
 
   def category_params
     params.require(:category).permit(:name)
+  end
+
+  def set_category
+    @category = Category.find(params[:id])
   end
 end
